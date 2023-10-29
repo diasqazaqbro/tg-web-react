@@ -3,19 +3,23 @@ import './Form.css';
 import {useTelegram} from "../../hooks/useTelegram";
 
 const Form = () => {
-    const [country, setCountry] = useState('');
-    const [street, setStreet] = useState('');
-    const [subject, setSubject] = useState('physical');
+    const [title, setTitle] = useState(''); 
+    const [city, setCity] = useState('');
+    const [description, setDescription] = useState('');
+    const [format, setFormat] = useState(''); 
+    const [schedule, setSchedule] = useState('');
+    const [salary, setSalary] = useState('');
+    const [requirements, setReqirements] = useState('');
+    const [contacts, setContacts] = useState('');
     const {tg} = useTelegram();
 
     const onSendData = useCallback(() => {
         const data = {
-            country,
-            street,
+            title, city, description, format, schedule, salary, requirements, contacts,
             subject
         }
         tg.sendData(JSON.stringify(data));
-    }, [country, street, subject])
+    }, [title, city, description, format, schedule, salary, requirements, contacts, subject])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -31,23 +35,38 @@ const Form = () => {
     }, [])
 
     useEffect(() => {
-        if(!street || !country) {
+        if(!title || !city || !description || !format || !schedule || !salary || !requirements || !contacts) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [country, street])
+    }, [title, city, description, format, schedule, salary, requirements, contacts])
 
-    const onChangeCountry = (e) => {
-        setCountry(e.target.value)
+    const onChangeTitle = (e) => {
+        setTitle(e.target.value)
     }
 
-    const onChangeStreet = (e) => {
-        setStreet(e.target.value)
+    const onChangeCity = (e) => {
+        setCity(e.target.value)
     }
 
-    const onChangeSubject = (e) => {
-        setSubject(e.target.value)
+    const onChangeDescription = (e) => {
+        setDescription(e.target.value)
+    }
+    const onChangeFormat = (e) => {
+        setFormat(e.target.value)
+    }
+    const onChangeSchedule = (e) => {
+        setSchedule(e.target.value)
+    }
+    const onChangeSalary = (e) => {
+        setSalary(e.target.value)
+    }
+    const onChangeReqirements = (e) => {
+        setReqirements(e.target.value)
+    }
+    const onChangeContacts = (e) => {
+        setContacts(e.target.value)
     }
 
     return (
@@ -56,21 +75,60 @@ const Form = () => {
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Страна'}
-                value={country}
-                onChange={onChangeCountry}
+                placeholder={'Заголовок'}
+                value={title}
+                onChange={onChangeTitle} 
             />
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Улица'}
-                value={street}
-                onChange={onChangeStreet}
+                placeholder={'Город'}
+                value={city}
+                onChange={onChangeCity}
             />
-            <select value={subject} onChange={onChangeSubject} className={'select'}>
-                <option value={'physical'}>Физ. лицо</option>
-                <option value={'legal'}>Юр. лицо</option>
-            </select>
+            <input
+                className={'input'}
+                type="text"
+                placeholder={'О компании'}
+                value={description}
+                onChange={onChangeDescription}
+            />
+            <input
+                className={'input'}
+                type="text"
+                placeholder={'Формат работы'}
+                value={format}
+                onChange={onChangeFormat}
+            />
+            <input
+                className={'input'}
+                type="text"
+                placeholder={'График работы 5/2'}
+                value={schedule}
+                onChange={onChangeSchedule}
+            />
+            <input
+                className={'input'}
+                type="text"
+                placeholder={'Заработная плата'}
+                value={salary}
+                onChange={onChangeSalary}
+            />
+            <input
+                className={'input'}
+                type="text"
+                placeholder={'Требования'}
+                value={requirements}
+                onChange={onChangeReqirements}
+            />
+            <input
+                className={'input'}
+                type="text"
+                placeholder={'Контакты'}
+                value={contacts}
+                onChange={onChangeContacts}
+            />
+           
         </div>
     );
 };
