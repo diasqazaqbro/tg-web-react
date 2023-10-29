@@ -11,6 +11,7 @@ const Form = () => {
     const [salary, setSalary] = useState('');
     const [requirements, setReqirements] = useState('');
     const [contacts, setContacts] = useState('');
+    const [subject, setSubject] = useState('');
     const {tg} = useTelegram();
 
     const onSendData = useCallback(() => {
