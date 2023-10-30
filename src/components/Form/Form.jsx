@@ -125,7 +125,7 @@ const Form = () => {
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Контакты (Пример: +77016561717)'}
+                placeholder={'Контакты (Пример: 777-333-11-22)'}
                 value={contacts}
                 onChange={onChangeContacts}
             />
