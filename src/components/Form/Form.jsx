@@ -76,35 +76,35 @@ const Form = () => {
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Заголовок'}
+                placeholder={'Вакансия'}
                 value={title}
                 onChange={onChangeTitle} 
             />
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Город'}
+                placeholder={'Город-адрес'}
                 value={city}
                 onChange={onChangeCity}
             />
             <input
                 className={'input'}
                 type="text"
-                placeholder={'О компании'}
+                placeholder={'Компания'}
                 value={description}
                 onChange={onChangeDescription}
             />
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Формат работы'}
+                placeholder={'Формат работы (пример Онлайн, Оффлайн)'}
                 value={format}
                 onChange={onChangeFormat}
             />
             <input
                 className={'input'}
                 type="text"
-                placeholder={'График работы 5/2'}
+                placeholder={'График работы (5/2, 6/1, 2/2)'}
                 value={schedule}
                 onChange={onChangeSchedule}
             />
@@ -118,14 +118,14 @@ const Form = () => {
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Требования'}
+                placeholder={'Требования (Пример: 1. Опыт работы от 1 года, усидчивость'}
                 value={requirements}
                 onChange={onChangeReqirements}
             />
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Контакты'}
+                placeholder={'Контакты (Пример: +77016561717)'}
                 value={contacts}
                 onChange={onChangeContacts}
             />
